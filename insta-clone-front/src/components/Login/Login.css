@@ -1,0 +1,46 @@
+.login-top-container{
+    text-align: center;
+    width: 20rem;
+    height: 50%;
+    border: 2px solid #DBDBDB;
+    background-color: white;
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+
+.login-bottom-container{
+    text-align: center;
+    width: 20rem;
+    height: 4rem;
+    border: 2px solid #DBDBDB;
+    background-color: white;
+    padding: 1rem;
+}
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:  row;
+    background-color: #FAFAFA;
+    height: 100vh;
+}
+
+.col{
+    margin: auto;
+    text-align: center;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+.sign-up{
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.forgotten-password{
+    font-size: 0.75rem;
+}
