@@ -57,7 +57,7 @@ const AddPost = () => {
                 </div>
                 </div>
                 <div className="form-group">
-                    <button type="button submit" className="btn btn-primary btn-block w-100">Sign up</button>
+                    <button type="button submit" className="btn btn-primary btn-block w-100">Add post</button>
                 </div>
             </form>
         </div>

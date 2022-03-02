@@ -1,24 +1,51 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PostContainer from "../Post/PostContainer/PostContainer.js"
-import useFetch from "../../helpers/hooks/useFetch.js"
-import postPic from "./pic.jpg"
-import profPic from "./prof.jpg"
 import "./Feed.css"
+import InfiniteScroll from 'react-infinite-scroller';
+
+import * as postService from "../../services/PostService"
 
 const Feed = () => {
 
-  const [Posts, setPosts] = useState([])
-  const [PageNumber, setPageNumber] = useState(0)
-  const [PageSize, setPageSize] = useState(5)
+  const [posts, setPosts] = useState([])
+  const [pageNumber, setPageNumber] = useState(0)
+  const [pageSize, setPageSize] = useState(5)
   
-  const[data] = useFetch(`/api/post/feed?page=${PageNumber}&size=${PageSize}`)
+  useEffect(() => {
+    postService.getFeed(pageNumber, pageSize).then((result) => {
+      console.log(result.data.content)
+      setPosts(result.data.content)
+    }).catch((error) => {
 
+    })
+  }, [])
 
+  const loadFunc = () => {
+    // setPageNumber(pageNumber + 1);
+    // postService.getFeed(pageNumber, pageSize).then((result) => {
+    //   console.log(result.data.content)
+    //   setPosts(result.data.content)
+    // }).catch((error) => {
+
+    // })
+    console()
+  }
 
   return (
     <div className='feed-container'>
         <div className='feed'>
-                <PostContainer username="Lule" porfilePic={profPic} picture={postPic}/>
+          {/* <InfiniteScroll
+            pageStart={pageNumber}
+            loadMore={loadFunc}
+            hasMore={true || false}
+            loader={<div className="loader" key={0}>Loading ...</div>}
+          > */}
+            {
+              posts.map((post) => {
+                return <PostContainer key={post.id} post={post}/>
+              })
+            }
+          {/* </InfiniteScroll> */}
         </div>
     </div>
   )

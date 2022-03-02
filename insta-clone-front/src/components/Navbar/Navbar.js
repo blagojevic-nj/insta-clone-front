@@ -4,8 +4,13 @@ import logo from "../../static/images/insta_logo.png"
 import * as userService from "../../services/UserService"
 import { useState } from "react";
 
-const Navbar = () => {
+import {isAuthenticated} from "../../helpers/AuthHelper"
+
+export const Navbar = () => {
     const[query, setQuery] = useState("");
+
+    // if(!isAuthenticated())
+    //     return null;
 
     const search = (e) => {
         e.preventDefault()

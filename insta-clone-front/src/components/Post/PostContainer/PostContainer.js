@@ -4,15 +4,15 @@ import PostHeader from '../PostHeader/PostHeader'
 import ReactionsBar from '../Reactions/ReactionsBar'
 import "./PostContainer.css"
 
-const PostContainer = ({username, profilePic, picture}) => {
+const PostContainer = ({post}) => {
   return (
     <div className='post-container'>
-        <PostHeader username={username} picture={profilePic}></PostHeader>
-        <img className='post-img' alt="loading..." src={picture}></img>
+        <PostHeader username={post.username} profilePic={process.env.REACT_APP_SERVER_URL+ post.userProfilePicture}></PostHeader>
+        <img className='post-img' alt="loading..." src={process.env.REACT_APP_SERVER_URL+post.picture}></img>
         <ReactionsBar/>
         <div className='post-description'>
-          <p className='username'>@{username}</p>
-          <p>Neki text iz opisa kako je ovo super slika! Lorem ipsum  i ostalo latinski nesto nakucano</p>
+          <p className='username'>@{post.username}</p>
+          <p>{post.text}</p>
         </div>
         <AddComment/>
     </div>
