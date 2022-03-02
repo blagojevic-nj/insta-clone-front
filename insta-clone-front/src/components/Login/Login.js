@@ -7,6 +7,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
+
 const schema = yup.object().shape({
     password: yup.string().required("Obavezno polje"),
     username: yup.string().required("Obavezno polje!")
@@ -19,12 +24,19 @@ const Login = () => {
     });
 
     const onSubmit = (data) => {
-        authService.login(data)
+        authService.login(data).then((result) => {
+            if(result.data.token){
+                sessionStorage.setItem("token", result.data.token);
+                window.location.href="/home"
+            }
+        }).catch((error) => {
+            toast.error("Losi kredencijali")
+        });
     }
 
     return <div className="main-container">
-        <div className="col align-items-center justify-content-center">
-            <form className="login-top-container" onSubmit={handleSubmit(onSubmit)}>
+        <div className="colon">
+            <form className="login-container login-top-container" onSubmit={handleSubmit(onSubmit)}>
                 <h1>Instagram</h1>
                 <div className="form-group mb-2" >
                     <input type={"text"} className="form-control" placeholder="Username" name="username" {...register("username")}></input>
@@ -40,7 +52,7 @@ const Login = () => {
                 <hr/>
                 <a className="forgotten-password" href="http://localhost:3000/forgotten-password">Forgotten your password?</a>
             </form>
-            <div className="login-bottom-container">
+            <div className="login-container login-bottom-container">
                 <label>Don't have an account?</label>
                 <a className="sign-up" href="#">Sign up</a>
             </div>
