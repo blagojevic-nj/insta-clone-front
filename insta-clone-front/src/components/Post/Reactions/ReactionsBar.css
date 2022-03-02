@@ -1,0 +1,33 @@
+.reactions-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(180, 180, 180);
+    padding: 0 1rem;
+    align-items: center;
+}
+
+.like{
+    margin-right: 1rem;
+    font-size: larger;
+}
+
+.likes{
+    display: flex;
+}
+
+.likes-text{
+    padding-top: 1rem;
+    font-weight: 500;
+    font-size: large;
+    color: rgb(20, 20, 20);
+}
+
+.icon{
+    color: rgb(20, 20, 20);
+}
+
+.icon:hover{
+    color: gray;
+    cursor: pointer;
+}
