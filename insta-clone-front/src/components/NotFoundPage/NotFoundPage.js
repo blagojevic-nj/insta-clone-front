@@ -1,5 +1,3 @@
-import "../../../node_modules/bootstrap/dist/js/bootstrap"
-import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "./NotFoundPage.css"
 import { Link } from 'react-router-dom'; 
 
