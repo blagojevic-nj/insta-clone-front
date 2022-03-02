@@ -43,8 +43,8 @@ const AddPost = () => {
     return <div className="main-container">
         <div className="colon">
             <form className="registration-container " onSubmit={handleSubmit(onSubmit)}>
-                <h1>Instagram</h1>
-                <p>Sign up to see photos and videos from your friends.</p>
+                <h1>Add new post</h1>
+                <p>Share your big moments with others</p>
                 <div className="form-group mb-2" >
                     <input type={"text"} className="form-control" placeholder="Desription" name="text" {...register("text")}></input>
                     <p className="error-message">{errors["text"]?.message}</p>
