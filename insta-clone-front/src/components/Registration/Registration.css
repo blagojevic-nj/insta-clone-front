@@ -1,0 +1,37 @@
+.registration-container{
+    text-align: center;
+    width: 20rem;
+    border: 2px solid #DBDBDB;
+    border-radius: 3px;
+    background-color: white;
+    height: 50%;
+    padding: 2rem;
+}
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:  row;
+    background-color: #FAFAFA;
+    height: 100vh;
+}
+
+.colon {
+    margin: auto;
+    text-align: center;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+.sign-up{
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.forgotten-password{
+    font-size: 0.75rem;
+}
