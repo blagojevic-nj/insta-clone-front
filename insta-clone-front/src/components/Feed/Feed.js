@@ -7,18 +7,18 @@ import "./Feed.css"
 
 const Feed = () => {
 
-  const [Posts, setPosts] = useState([])
+  const Posts = useFetch("/api/post/feed?page=0&size=5")
   const [PageNumber, setPageNumber] = useState(0)
   const [PageSize, setPageSize] = useState(5)
   
-  const[data] = useFetch(`/api/post/feed?page=${PageNumber}&size=${PageSize}`)
-
+  
 
 
   return (
     <div className='feed-container'>
         <div className='feed'>
-                <PostContainer username="Lule" porfilePic={profPic} picture={postPic}/>
+            {Posts&&Posts.map(p => 
+                <PostContainer username={p.username} porfilePic={p.userProfilePicture} picture={p.picture}/>)}
         </div>
     </div>
   )
