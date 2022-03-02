@@ -1,0 +1,11 @@
+.feed-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.feed{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
