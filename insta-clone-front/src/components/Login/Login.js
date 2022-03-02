@@ -47,14 +47,14 @@ const Login = () => {
                     <p className="error-message">{errors["password"]?.message}</p>
                 </div>
                 <div className="form-group">
-                    <button type="button submit" className="btn btn-primary w-50">Log in</button>
+                    <button type="button submit" className="btn btn-primary w-100">Log in</button>
                 </div>
                 <hr/>
                 <a className="forgotten-password" href="http://localhost:3000/forgotten-password">Forgotten your password?</a>
             </form>
             <div className="login-container login-bottom-container">
                 <label>Don't have an account?</label>
-                <a className="sign-up" href="#">Sign up</a>
+                <a className="sign-up" href="http://localhost:3000/registration">Sign up</a>
             </div>
         </div>
     </div>
