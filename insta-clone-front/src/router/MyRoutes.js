@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import AddPost from "../components/AddPost/AddPost";
 import ForgottenPassword from "../components/ForgottenPassword/ForgottenPassword";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
@@ -17,6 +18,7 @@ const MyRoutes = () => {
         <Route exact path="/registration" element={!helper.isAuthenticated() ? <Registration/> :<Navigate to={"/home"}/>}/>
         <Route exact path="/forgotten-password" element={helper.isAuthenticated() ? <Home/> : <ForgottenPassword/>}/>
         <Route exact path="/reset-password/:token" element={helper.isAuthenticated() ? <Home/> : <ResetPassword/>}/>
+        <Route exact path="/add-post" element={helper.isAuthenticated() ? <AddPost/> : <Navigate to={"/login"}/>}/>
         <Route exact path="*" element={<NotFound/>}/>
     </Routes>
 }
