@@ -6,13 +6,9 @@ axios.interceptors.request.use(
     
     if(token)
     {
-        const headers = { headers: {
-            "Authorization" : `Bearer ${token}`,
-            'Accept' : 'application/json',
-            'Content-Type': 'application/json'
-        }}
-        req.headers = headers;
+        req.headers.common.Authorization = `Bearer ${token}`;
     }
+    return req;
    },
    (err) => {
       return Promise.reject(err);
