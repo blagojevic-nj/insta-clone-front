@@ -1,19 +1,19 @@
-.login-top-container{
+.login-container{
     text-align: center;
     width: 20rem;
-    height: 50%;
     border: 2px solid #DBDBDB;
+    border-radius: 3px;
     background-color: white;
+}
+
+.login-top-container{
+    height: 50%;
     padding: 2rem;
     margin-bottom: 1rem;
 }
 
 .login-bottom-container{
-    text-align: center;
-    width: 20rem;
     height: 4rem;
-    border: 2px solid #DBDBDB;
-    background-color: white;
     padding: 1rem;
 }
 
@@ -26,7 +26,7 @@
     height: 100vh;
 }
 
-.col{
+.colpn {
     margin: auto;
     text-align: center;
     display: block;
