@@ -1,5 +1,3 @@
-import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "../../../node_modules/bootstrap/dist/js/bootstrap"
 import "./Login.css"
 import * as authService from "../../services/AuthService"
 
