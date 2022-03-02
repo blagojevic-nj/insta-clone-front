@@ -11,15 +11,14 @@ const Feed = () => {
   const [PageNumber, setPageNumber] = useState(0)
   const [PageSize, setPageSize] = useState(5)
   
-  const[data] = setPosts(useFetch(`/api/post/feed?page=${PageNumber}&size=${PageSize}`))
-  
+  const[data] = useFetch(`/api/post/feed?page=${PageNumber}&size=${PageSize}`)
+
 
 
   return (
     <div className='feed-container'>
         <div className='feed'>
-            {Posts.map(p => 
-                <PostContainer username="Lule" porfilePic={profPic} picture={postPic}/>)}
+                <PostContainer username="Lule" porfilePic={profPic} picture={postPic}/>
         </div>
     </div>
   )
