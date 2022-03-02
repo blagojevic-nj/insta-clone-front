@@ -3,11 +3,16 @@ import "../../../node_modules/bootstrap/dist/js/bootstrap"
 import "../Login/Login.css"
 import "./ForgottenPassword.css"
 
-import * as authService from "../../services/AuthService"
+import * as userService from "../../services/UserService"
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm } from "react-hook-form";
+
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
 
 const schema = yup.object().shape({
     email: yup.string().required("Obavezno polje").email("Unesite validan email!"),
@@ -20,12 +25,14 @@ const ForgottenPassword = () => {
     });
 
     const onSubmit = (data) => {
-        alert(data.email)
+        userService.resetPassword(data.email).then((result) => {
+            toast("Proverite vas email!")
+        })
     }
 
     return <div className="main-container">
-    <div className="col align-items-center justify-content-center">
-        <form className="login-top-container" onSubmit={handleSubmit(onSubmit)}>
+    <div className="colon">
+        <form className="fp-container" onSubmit={handleSubmit(onSubmit)}>
             <h5>Trouble with logging in?</h5>
             <p>Enter your email address, phone number or username, and we'll send you a link to get back into your account.</p>
             <div className="form-group mb-2" >
