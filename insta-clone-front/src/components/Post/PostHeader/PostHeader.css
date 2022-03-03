@@ -1,16 +1,20 @@
-.post-header
-{
-    display: flex;
-    flex-direction: row;
-    padding: 0.5rem;
-    align-items: center;
-/*     border-top: 1px solid rgb(180, 180, 180);
- */}
-
-.avatar{
-    margin: 0px 0.5rem    
+.post-header {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  align-items: center;
+  /*     border-top: 1px solid rgb(180, 180, 180);
+ */
 }
 
-.post-header-username{
-    color: rgb(20, 20, 20);
+.avatar {
+  margin: 0px 0.5rem;
+}
+
+.post-header-username {
+  color: rgb(20, 20, 20);
+}
+
+.post-header:hover {
+  cursor: pointer;
 }

@@ -1,13 +1,17 @@
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import MyRouter from "./router/MyRouter";
-import "./helpers/interceptors/TokenInterceptor"
+import "./helpers/interceptors/TokenInterceptor";
+import ProtectedRoute from "./router/ProtectedRoute";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  return (<>
-    <MyRouter/>
-  </>
+  return (
+    <>
+      <ProtectedRoute component={<Navbar />} navigate={<></>} />
+      <MyRouter />
+    </>
   );
 }
 
