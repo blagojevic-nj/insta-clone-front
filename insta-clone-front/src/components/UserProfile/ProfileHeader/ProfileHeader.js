@@ -52,7 +52,7 @@ const ProfileHeader = ({ username }) => {
               {FollowVal}
             </button>
           ) : (
-            {}
+            <></>
           )}
         </div>
         <div className="row">

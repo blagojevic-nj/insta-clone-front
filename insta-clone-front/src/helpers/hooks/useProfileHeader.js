@@ -15,12 +15,13 @@ export const useProfileHeader = (username) => {
   const [PostsNumber, setPostsNumber] = useState(0);
   const [FollowerNumber, setFollowerNumber] = useState(0);
   const [FollowingNumber, setFollowingNumber] = useState(0);
-  const [FollowEnabled, setFollowEnabled] = useState(true);
+  const [FollowEnabled, setFollowEnabled] = useState(getDecodedUsername() !== username);
   const [FollowVal, setFollowVal] = useState("Follow");
   var loggedInUser = null;
 
   useEffect(() => {
     if (!username) return <Navigate to={"/login"} />;
+    loggedInUser = getDecodedUsername();
 
     getProfileInfo(username)
       .then((res) => {
@@ -31,21 +32,13 @@ export const useProfileHeader = (username) => {
         setFollowingNumber(res.data.followingNumber);
         setBio(res.data.bio);
         setProfilePicture(`${SPRING_APP_URL}${res.data.profilePicture}`);
-        loggedInUser = getDecodedUsername();
-        if (loggedInUser) {
-          if (loggedInUser === username) {
-            setFollowEnabled(false);
-          } else {
-            setFollowEnabled(true);
-            checkIfUserFollowsUser(loggedInUser, username).then((res) =>
+        checkIfUserFollowsUser(loggedInUser, username).then((res) =>
               res.data ? setFollowVal("Unfollow") : setFollowVal("Follow")
-            );
-          }
-        } else {
-          window.location.href = "/home";
-        }
+            ); 
       })
       .catch((err) => {
+        console.log(JSON.stringify(err));
+        alert("bla");
         window.location.href = "/home";
       });
   }, []);
