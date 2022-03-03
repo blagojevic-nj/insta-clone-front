@@ -7,6 +7,7 @@ import SentimentVeryDissatisfiedOutlinedIcon from "@mui/icons-material/Sentiment
 import SentimentDissatisfiedOutlinedIcon from "@mui/icons-material/SentimentDissatisfiedOutlined";
 import { useEffect, useState } from "react";
 import { myPostReaction } from "../../../../services/ReactionService";
+
 export const Reactions = ({ reactionKind, entityId }) => {
   const [reactionType, setReactionType] = useState("");
 
@@ -23,7 +24,7 @@ export const Reactions = ({ reactionKind, entityId }) => {
         reactionKind={reactionKind}
         entityId={entityId}
         icon={<ThumbUpOutlinedIcon />}
-        active={reactionType == "LIKE"}
+        active={reactionType === "LIKE"}
         reactionTypeState={reactionType}
         setReactionType={setReactionType}
       />
@@ -32,7 +33,7 @@ export const Reactions = ({ reactionKind, entityId }) => {
         reactionKind={reactionKind}
         entityId={entityId}
         icon={<ThumbDownAltOutlinedIcon />}
-        active={reactionType == "DISLIKE"}
+        active={reactionType === "DISLIKE"}
         reactionTypeState={reactionType}
         setReactionType={setReactionType}
       />
@@ -41,7 +42,7 @@ export const Reactions = ({ reactionKind, entityId }) => {
         reactionKind={reactionKind}
         entityId={entityId}
         icon={<SentimentVerySatisfiedOutlinedIcon />}
-        active={reactionType == "LAUGH"}
+        active={reactionType === "LAUGH"}
         reactionTypeState={reactionType}
         setReactionType={setReactionType}
       />
@@ -50,7 +51,7 @@ export const Reactions = ({ reactionKind, entityId }) => {
         reactionKind={reactionKind}
         entityId={entityId}
         icon={<SentimentVeryDissatisfiedOutlinedIcon />}
-        active={reactionType == "ANGRY"}
+        active={reactionType === "ANGRY"}
         reactionTypeState={reactionType}
         setReactionType={setReactionType}
       />
@@ -59,7 +60,7 @@ export const Reactions = ({ reactionKind, entityId }) => {
         reactionKind={reactionKind}
         entityId={entityId}
         icon={<SentimentDissatisfiedOutlinedIcon />}
-        active={reactionType == "SAD"}
+        active={reactionType === "SAD"}
         reactionTypeState={reactionType}
         setReactionType={setReactionType}
       />
