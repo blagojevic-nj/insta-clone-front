@@ -39,8 +39,7 @@ export const useProfileHeader = (username) => {
           } else {
             setFollowEnabled(true);
             checkIfUserFollowsUser(loggedInUser, username).then((res) =>
-              res.data === "true"
-                ? setFollowVal("Follow")
+              res.data? setFollowVal("Follow")
                 : setFollowVal("Unfollow")
             );
           }
@@ -63,6 +62,7 @@ export const useProfileHeader = (username) => {
     FollowingNumber,
     FollowEnabled,
     FollowVal,
+    setFollowVal,
   ];
 };
 

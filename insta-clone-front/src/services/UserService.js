@@ -23,3 +23,12 @@ export const getProfileInfo = (username) => {
 export const checkIfUserFollowsUser = (username, followedUser) => {
     return axios.get(url + `/follow-check?username=${username}&followedUsername=${followedUser}`)
 }
+
+
+export const followUnfollow = (myUsername, otherUsername) => {
+    const dto = {
+        myUsername: myUsername,
+        otherUsername: otherUsername
+    }
+    return axios.post(url+ "/follow-unfollow", dto);
+}
