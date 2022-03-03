@@ -9,6 +9,7 @@
 .my-img-container {
     width: 90%;
     max-height: 20vh;
+    margin-bottom: 1rem;
 }
 
 .my-img {

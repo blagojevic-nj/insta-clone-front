@@ -37,8 +37,6 @@ export const useProfileHeader = (username) => {
             ); 
       })
       .catch((err) => {
-        console.log(JSON.stringify(err));
-        alert("bla");
         window.location.href = "/home";
       });
   }, []);
