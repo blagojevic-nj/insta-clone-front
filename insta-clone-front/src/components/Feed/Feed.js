@@ -13,11 +13,11 @@ const Feed = () => {
   const loadFunc = () => {
     getFeed(pageNumber, 4).then((result) => {
       const newPosts = [...posts, ...result.data.content];
-      setPosts(newPosts);
 
       if (newPosts.length >= result.data.totalElements) {
         setHasMore(false);
       }
+      setPosts(newPosts);
       setPageNumber(pageNumber + 1);
     });
   };

@@ -9,7 +9,7 @@ const PostContainer = ({post}) => {
     <div className='post-container'>
         <PostHeader username={post.username} profilePic={process.env.REACT_APP_SERVER_URL+ post.userProfilePicture}></PostHeader>
         <img className='post-img' alt="loading..." src={process.env.REACT_APP_SERVER_URL+post.picture}></img>
-        <ReactionsBar/>
+        <ReactionsBar entityId={post.id}/>
         <div className='post-description'>
           <p className='username'>@{post.username}</p>
           <p>{post.text}</p>
