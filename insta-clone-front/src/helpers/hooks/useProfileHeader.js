@@ -30,7 +30,7 @@ export const useProfileHeader = (username) => {
         setFollowingNumber(res.data.followingNumber);
         setBio(res.data.bio);
         setProfilePicture(
-          res.data.profilePicture ? res.data.profilePicture : ""
+          res.data.profilePicture ? `http://localhost:8080/${res.data.profilePicture}` : "http://localhost:8080/static/users/default.jpg"
         );
         loggedInUser = getDecodedUsername();
         if (loggedInUser) {

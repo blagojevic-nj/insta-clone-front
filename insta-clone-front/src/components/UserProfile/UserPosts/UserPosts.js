@@ -11,7 +11,10 @@ const UserPosts = ({ username }) => {
       .then(res => {
         if(res.data?.content)
         {
-          const pictures = res.data.content.map(post => post.picture)
+          const pictures = res.data.content.map(post => {
+            const img = post.picture ? `http://localhost:8080${post.picture}` : 'http://localhost:8080/static/posts/default.jpg'
+            return {key: post.id, img: img}
+          })
           setPosts(pictures)
         }
         return null;
@@ -25,9 +28,9 @@ const UserPosts = ({ username }) => {
 
   return (
     <div className='user-posts-container'>
-        {Posts.map(pic => 
-          <div className='my-img-container'>
-            <img className='my-img' alt='img' src={pic.picture}></img>
+        {Posts.map(post => 
+          <div className='my-img-container' key={post.key}>
+              <img className='my-img' alt='img' src={post.img}></img>
           </div>
           )}
     </div>
