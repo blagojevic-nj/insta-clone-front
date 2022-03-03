@@ -6,13 +6,13 @@ import "./UserProfile.css"
 
 const UserProfile = () => {
 
-    const { id } = useParams()
+    const { username } = useParams()
 
   return (
     <div className='profile-container'>
       <div className='profile'>
-          <ProfileHeader/>
-          <UserPosts/>
+          <ProfileHeader username={username}/>
+          <UserPosts username={username}/>
       </div>
     </div>
   )

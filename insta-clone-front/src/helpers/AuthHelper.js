@@ -16,12 +16,12 @@ export const logout = () => {
   window.location.href = "/";
 };
 
+    return decoded.role;
+}
 
 export const getDecodedUsername = () => {
-  const token = sessionStorage.getItem("token");
-  if (!token) return "";
-
-  const decoded = jwtDecode(token);
-
-  return decoded.sub;
+    const token = sessionStorage.getItem("token");
+    if(!token) return "";
+    
+    return jwtDecode(token).sub;
 }
