@@ -9,6 +9,8 @@ export const Reaction = ({
   active,
   reactionTypeState,
   setReactionType,
+  likes,
+  setLikes,
 }) => {
   const sendReaction = () => {
     if (reactionKind === "POST_REACTION") {
@@ -17,8 +19,12 @@ export const Reaction = ({
         .then((result) => {
           if (reactionTypeState === reactionType) {
             setReactionType("");
+            setLikes(likes - 1);
           } else {
             setReactionType(reactionType);
+            if (!result.data.update) {
+              setLikes(likes + 1);
+            }
           }
         });
     }

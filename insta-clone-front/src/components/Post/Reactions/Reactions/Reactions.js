@@ -8,7 +8,16 @@ import SentimentDissatisfiedOutlinedIcon from "@mui/icons-material/SentimentDiss
 import { useEffect, useState } from "react";
 import { myPostReaction } from "../../../../services/ReactionService";
 
-export const Reactions = ({ reactionKind, entityId }) => {
+const REACTION_TYPES = ["LIKE", "DISLIKE", "LAUGH", "ANGRY", "SAD"];
+const ICONS = [
+  <ThumbUpOutlinedIcon />,
+  <ThumbDownAltOutlinedIcon />,
+  <SentimentVerySatisfiedOutlinedIcon />,
+  <SentimentVeryDissatisfiedOutlinedIcon />,
+  <SentimentDissatisfiedOutlinedIcon />,
+];
+
+export const Reactions = ({ reactionKind, entityId, likes, setLikes }) => {
   const [reactionType, setReactionType] = useState("");
 
   useEffect(() => {
@@ -19,51 +28,19 @@ export const Reactions = ({ reactionKind, entityId }) => {
 
   return (
     <div className="custom-reactions">
-      <Reaction
-        reactionType={"LIKE"}
-        reactionKind={reactionKind}
-        entityId={entityId}
-        icon={<ThumbUpOutlinedIcon />}
-        active={reactionType === "LIKE"}
-        reactionTypeState={reactionType}
-        setReactionType={setReactionType}
-      />
-      <Reaction
-        reactionType={"DISLIKE"}
-        reactionKind={reactionKind}
-        entityId={entityId}
-        icon={<ThumbDownAltOutlinedIcon />}
-        active={reactionType === "DISLIKE"}
-        reactionTypeState={reactionType}
-        setReactionType={setReactionType}
-      />
-      <Reaction
-        reactionType={"LAUGH"}
-        reactionKind={reactionKind}
-        entityId={entityId}
-        icon={<SentimentVerySatisfiedOutlinedIcon />}
-        active={reactionType === "LAUGH"}
-        reactionTypeState={reactionType}
-        setReactionType={setReactionType}
-      />
-      <Reaction
-        reactionType={"ANGRY"}
-        reactionKind={reactionKind}
-        entityId={entityId}
-        icon={<SentimentVeryDissatisfiedOutlinedIcon />}
-        active={reactionType === "ANGRY"}
-        reactionTypeState={reactionType}
-        setReactionType={setReactionType}
-      />
-      <Reaction
-        reactionType={"SAD"}
-        reactionKind={reactionKind}
-        entityId={entityId}
-        icon={<SentimentDissatisfiedOutlinedIcon />}
-        active={reactionType === "SAD"}
-        reactionTypeState={reactionType}
-        setReactionType={setReactionType}
-      />
+      {REACTION_TYPES.map((type, id) => (
+        <Reaction
+          reactionType={type}
+          reactionKind={reactionKind}
+          entityId={entityId}
+          icon={ICONS[id]}
+          active={reactionType === type}
+          reactionTypeState={reactionType}
+          setReactionType={setReactionType}
+          likes={likes}
+          setLikes={setLikes}
+        />
+      ))}
     </div>
   );
 };
