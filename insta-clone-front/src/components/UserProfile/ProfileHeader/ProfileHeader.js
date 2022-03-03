@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import useProfileHeader from "../../../helpers/hooks/useProfileHeader";
 import { followUnfollow } from "../../../services/UserService";
-import {toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./ProfileHeader.css";
 
-toast.configure()
-
+toast.configure();
 
 const ProfileHeader = ({ username }) => {
   const [
@@ -19,16 +18,18 @@ const ProfileHeader = ({ username }) => {
     FollowingNumber,
     FollowEnabled,
     FollowVal,
-    setFollowVal
+    setFollowVal,
   ] = useProfileHeader(username);
 
   const handleFollow = (click) => {
     followUnfollow(loggedInUser, username)
-    .then(res => {
-        FollowVal === 'Follow' ? setFollowVal('Unfollow') : setFollowVal('Follow');
-        toast.success(`User successfully ${FollowVal}ed!`)
-    })
-    .catch(err =>{})
+      .then((res) => {
+        FollowVal === "Follow"
+          ? setFollowVal("Unfollow")
+          : setFollowVal("Follow");
+        toast.success(`User successfully ${FollowVal}ed!`);
+      })
+      .catch((err) => {console.log(err.message)});
   };
 
   return (
@@ -45,7 +46,7 @@ const ProfileHeader = ({ username }) => {
           <p className="usernameHeader">{username}</p>
           {FollowEnabled ? (
             <button
-              className="btn btn-primary small"
+              className="btn btn-outline-primary small"
               onClick={(e) => handleFollow(e)}
             >
               {FollowVal}

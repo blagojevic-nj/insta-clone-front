@@ -5,6 +5,7 @@ import {
   checkIfUserFollowsUser,
 } from "../../services/UserService";
 import { getDecodedUsername } from "../../helpers/AuthHelper.js";
+import { SPRING_APP_URL } from "../../components/constants";
 
 export const useProfileHeader = (username) => {
   const [Username, setUsername] = useState(username || "Loading...");
@@ -29,9 +30,7 @@ export const useProfileHeader = (username) => {
         setFollowerNumber(res.data.followersNumber);
         setFollowingNumber(res.data.followingNumber);
         setBio(res.data.bio);
-        setProfilePicture(
-          res.data.profilePicture ? `http://localhost:8080/${res.data.profilePicture}` : "http://localhost:8080/static/users/default.jpg"
-        );
+        setProfilePicture(`${SPRING_APP_URL}${res.data.profilePicture}`);
         loggedInUser = getDecodedUsername();
         if (loggedInUser) {
           if (loggedInUser === username) {
@@ -39,8 +38,7 @@ export const useProfileHeader = (username) => {
           } else {
             setFollowEnabled(true);
             checkIfUserFollowsUser(loggedInUser, username).then((res) =>
-              res.data? setFollowVal("Follow")
-                : setFollowVal("Unfollow")
+              res.data ? setFollowVal("Unfollow") : setFollowVal("Follow")
             );
           }
         } else {
