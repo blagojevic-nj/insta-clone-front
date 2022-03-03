@@ -12,7 +12,8 @@
 .info-container {
     display: flex;
     flex-direction: column;
-    width: auto;
+    width: 50vw;
+    min-width: 500px;
 }
 
 .row {

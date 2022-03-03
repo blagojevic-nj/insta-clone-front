@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 1rem;
+    min-width: 500px;
 }
 
 .my-img-container {

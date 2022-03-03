@@ -8,6 +8,7 @@ import Login from "../components/Login/Login";
 import NotFound from "../components/NotFoundPage/NotFoundPage";
 import Registration from "../components/Registration/Registration";
 import ResetPassword from "../components/ResetPassword/ResetPassword";
+import UserProfile from "../components/UserProfile/UserProfile"
 
 const MyRoutes = () => {
   return (
@@ -78,6 +79,16 @@ const MyRoutes = () => {
         element={
           <ProtectedRoute
             component={<AddPost />}
+            navigate={<Navigate to={"/login"} />}
+          />
+        }
+      />
+      <Route
+        exact
+        path="/profile/:username"
+        element={
+          <ProtectedRoute
+            component={<UserProfile />}
             navigate={<Navigate to={"/login"} />}
           />
         }
