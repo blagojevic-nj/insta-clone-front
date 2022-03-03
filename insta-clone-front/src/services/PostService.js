@@ -25,3 +25,7 @@ export const deletePost = (postId) => {
 export const updatePost = (updatedPost) => {
     return axios.put( postUrl, updatedPost);
 }
+
+export const getUserPosts = (username, page, size) => {
+    return axios.get( postUrl + `user-posts?username=${username}&page=${page}&size=${size}`);
+}

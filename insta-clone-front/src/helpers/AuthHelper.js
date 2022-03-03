@@ -10,3 +10,10 @@ export const getRole = () => {
 
     return decoded.role;
 }
+
+export const getDecodedUsername = () => {
+    const token = sessionStorage.getItem("token");
+    if(!token) return "";
+    
+    return jwtDecode(token).sub;
+}
