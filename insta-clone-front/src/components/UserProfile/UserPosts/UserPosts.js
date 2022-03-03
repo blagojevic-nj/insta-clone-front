@@ -1,15 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "./UserPosts.css"
+import { getUserPosts } from '../../../services/PostService.js';
 
-const UserPosts = () => {
 
-    const dummy = [1,2,,12,1,1,1,1,1,1,1]
+const UserPosts = ({ username }) => {
+
+  const [Posts, setPosts] = useState([])
+    useEffect(() => {
+      getUserPosts(username, 0, 9)
+      .then(res => {
+        if(res.data?.content)
+        {
+          const pictures = res.data.content.map(post => post.picture)
+          setPosts(pictures)
+        }
+        return null;
+      })
+      .catch(err => {
+        console.log(JSON.stringify(err))
+      })
+    }, [])
+
+    
 
   return (
     <div className='user-posts-container'>
-        {dummy.map(pic => 
+        {Posts.map(pic => 
           <div className='my-img-container'>
-            <img className='my-img' alt='img' src={img}></img>
+            <img className='my-img' alt='img' src={pic.picture}></img>
           </div>
           )}
     </div>
