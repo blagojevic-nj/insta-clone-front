@@ -3,6 +3,7 @@ import AddComment from "../AddComment/AddComment";
 import PostHeader from "../PostHeader/PostHeader";
 import ReactionsBar from "../Reactions/ReactionsBar";
 import "./PostContainer.css";
+import { PostContext } from "../../../helpers/contexts/PostContext";
 
 const PostContainer = ({ post }) => {
   const [likes, setLikes] = useState(post.numOfReactions);
@@ -18,7 +19,9 @@ const PostContainer = ({ post }) => {
         alt="loading..."
         src={process.env.REACT_APP_SERVER_URL + post.picture}
       ></img>
-      <ReactionsBar entityId={post.id} likes={likes} setLikes={setLikes} />
+      <PostContext.Provider value={{ entityId: post.id, likes, setLikes }}>
+        <ReactionsBar likes={likes} />
+      </PostContext.Provider>
       <div className="post-description">
         <p className="username">@{post.username}</p>
         <p>{post.text}</p>

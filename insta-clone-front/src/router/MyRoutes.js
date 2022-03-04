@@ -8,7 +8,7 @@ import Login from "../components/Login/Login";
 import NotFound from "../components/NotFoundPage/NotFoundPage";
 import Registration from "../components/Registration/Registration";
 import ResetPassword from "../components/ResetPassword/ResetPassword";
-import UserProfile from "../components/UserProfile/UserProfile"
+import UserProfile from "../components/UserProfile/UserProfile";
 
 const MyRoutes = () => {
   return (
@@ -39,7 +39,7 @@ const MyRoutes = () => {
         element={
           <ProtectedRoute
             component={<Navigate to={"/home"} />}
-            navigate={<Login/>}
+            navigate={<Login />}
           />
         }
       />
@@ -47,10 +47,7 @@ const MyRoutes = () => {
         exact
         path="/registration"
         element={
-          <ProtectedRoute
-            component={<Home />}
-            navigate={<Registration/>}
-          />
+          <ProtectedRoute component={<Home />} navigate={<Registration />} />
         }
       />
       <Route
@@ -59,7 +56,7 @@ const MyRoutes = () => {
         element={
           <ProtectedRoute
             component={<Home />}
-            navigate={<ForgottenPassword/>}
+            navigate={<ForgottenPassword />}
           />
         }
       />
@@ -67,10 +64,7 @@ const MyRoutes = () => {
         exact
         path="/reset-password/:token"
         element={
-          <ProtectedRoute
-            component={<Home />}
-            navigate={<ResetPassword/>}
-          />
+          <ProtectedRoute component={<Home />} navigate={<ResetPassword />} />
         }
       />
       <Route

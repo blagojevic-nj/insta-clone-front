@@ -1,5 +1,5 @@
 export const readFile = (input) => {
-    const filePromise = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsDataURL(input.files[0])
       reader.onload = () => {
@@ -11,5 +11,4 @@ export const readFile = (input) => {
         }
        };
       })
-    return filePromise;
 }

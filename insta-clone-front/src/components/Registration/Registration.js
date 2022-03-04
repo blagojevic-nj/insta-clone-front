@@ -17,7 +17,7 @@ const Registration = () => {
                 }
             })
         }).catch((error) => {
-            toast.error(error.message);
+            toast.error("Username/email vec postoji!");
         })
     }
 
