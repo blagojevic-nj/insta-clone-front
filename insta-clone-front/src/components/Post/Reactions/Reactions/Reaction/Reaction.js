@@ -1,19 +1,22 @@
+import { useContext } from "react";
 import "./Reaction.css";
 import * as reactionService from "../../../../../services/ReactionService";
+import { PostContext } from "../../../../../helpers/contexts/PostContext";
+import { POST_REACTION } from "../../../../constants";
 
 export const Reaction = ({
   reactionType,
   reactionKind,
-  entityId,
   icon,
   active,
   reactionTypeState,
-  setReactionType,
-  likes,
-  setLikes,
+  setReactionType
 }) => {
+
+  const {entityId, likes, setLikes} = useContext(PostContext)
+
   const sendReaction = () => {
-    if (reactionKind === "POST_REACTION") {
+    if (reactionKind === POST_REACTION) {
       reactionService
         .togglePostReaction({ reactionType: reactionType, entityId: entityId })
         .then((result) => {

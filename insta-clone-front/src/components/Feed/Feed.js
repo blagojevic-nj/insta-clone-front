@@ -1,26 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import PostContainer from "../Post/PostContainer/PostContainer.js";
 import "./Feed.css";
 import InfiniteScroll from "react-infinite-scroller";
-
-import { getFeed } from "../../services/PostService";
+import { getFeed } from "../../services/PostService.js";
+import { useInfiniteScroll } from "../../helpers/hooks/useInfiniteScroll.js";
 
 const Feed = () => {
-  const [posts, setPosts] = useState([]);
-  const [pageNumber, setPageNumber] = useState(0);
-  const [hasMore, setHasMore] = useState(true);
-
-  const loadFunc = () => {
-    getFeed(pageNumber, 4).then((result) => {
-      const newPosts = [...posts, ...result.data.content];
-
-      if (newPosts.length >= result.data.totalElements) {
-        setHasMore(false);
-      }
-      setPosts(newPosts);
-      setPageNumber(pageNumber + 1);
-    });
-  };
+  const { data, pageNumber, hasMore, loadFunc } = useInfiniteScroll([], 0, 4, getFeed);
 
   return (
     <div className="feed-container">
@@ -35,7 +21,7 @@ const Feed = () => {
             </div>
           }
         >
-          {posts.map((post) => {
+          {data?.map((post) => {
             return <PostContainer key={post.id} post={post} />;
           })}
         </InfiniteScroll>
