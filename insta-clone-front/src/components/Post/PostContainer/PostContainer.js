@@ -23,8 +23,7 @@ const PostContainer = ({ post }) => {
         <ReactionsBar likes={likes} />
       </PostContext.Provider>
       <div className="post-description">
-        <p className="username">@{post.username}</p>
-        <p>{post.text}</p>
+        <p><span className="username">@{post.username}</span> {post.text}</p>
       </div>
       <AddComment />
     </div>

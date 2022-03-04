@@ -52,6 +52,7 @@ export const useProfileHeader = (username) => {
     FollowEnabled,
     FollowVal,
     setFollowVal,
+    setFollowerNumber,
   ];
 };
 
