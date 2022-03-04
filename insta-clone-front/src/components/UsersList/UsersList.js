@@ -4,8 +4,8 @@ import "./UsersList.css";
 export const UsersList = ({ users }) => {
   return (
     <div className="users-list">
-      {users.map((user) => (
-        <UserResult user={user} />
+      {users.map((user, id) => (
+        <UserResult key={id} user={user} />
       ))}
     </div>
   );

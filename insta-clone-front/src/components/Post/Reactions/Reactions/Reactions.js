@@ -32,7 +32,7 @@ export const Reactions = ({ reactionKind }) => {
   return (
     <div className="custom-reactions">
       {REACTIONS.map((type, id) => (
-        <Reaction
+        <Reaction key={id}
           reactionType={type}
           reactionKind={reactionKind}
           icon={ICONS[id]}

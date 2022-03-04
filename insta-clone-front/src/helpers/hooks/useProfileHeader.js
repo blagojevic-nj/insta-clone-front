@@ -8,16 +8,15 @@ import { getDecodedUsername } from "../../helpers/AuthHelper.js";
 import { SPRING_APP_URL } from "../../components/constants";
 
 export const useProfileHeader = (username) => {
-  const [Username, setUsername] = useState(username || "Loading...");
   const [Name, setName] = useState("");
   const [Bio, setBio] = useState("");
   const [ProfilePicture, setProfilePicture] = useState("");
   const [PostsNumber, setPostsNumber] = useState(0);
   const [FollowerNumber, setFollowerNumber] = useState(0);
   const [FollowingNumber, setFollowingNumber] = useState(0);
-  const [FollowEnabled, setFollowEnabled] = useState(getDecodedUsername() !== username);
   const [FollowVal, setFollowVal] = useState("Follow");
   var loggedInUser = null;
+  const FollowEnabled = getDecodedUsername() !== username;
 
   useEffect(() => {
     if (!username) return <Navigate to={"/login"} />;

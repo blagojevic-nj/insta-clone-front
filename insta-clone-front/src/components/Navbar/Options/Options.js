@@ -27,7 +27,7 @@ export const Options = () => {
         icon={<PersonOutlinedIcon />}
       />
 
-      <span className="icon" tabindex="0">
+      <span className="icon" tabIndex="0">
         <LogoutOutlinedIcon className="icon" onClick={logout} />
       </span>
     </div>
