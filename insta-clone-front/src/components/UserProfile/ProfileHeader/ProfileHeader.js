@@ -1,6 +1,6 @@
 import React from "react";
+import UserBio from "../Bio/UserBio";
 import useProfileHeader from "../../../helpers/hooks/useProfileHeader";
-import { followUnfollow } from "../../../services/UserService";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./ProfileHeader.css";
@@ -22,23 +22,6 @@ const ProfileHeader = ({ username }) => {
     setFollowerNumber,
   ] = useProfileHeader(username);
 
-  const handleFollow = (click) => {
-    followUnfollow(loggedInUser, username)
-      .then((res) => {
-        if(FollowVal === "Follow")
-        {
-          setFollowVal("Unfollow")
-          setFollowerNumber(FollowerNumber + 1)
-        }
-        else{
-          setFollowVal("Follow");
-          setFollowerNumber(FollowerNumber - 1)
-        }
-        toast.success(`User successfully ${FollowVal}ed!`);
-      })
-      .catch((err) => {console.log(err.message)});
-  };
-
   return (
     <div className="header-container row">
       <div className="img-container">
@@ -48,37 +31,19 @@ const ProfileHeader = ({ username }) => {
           src={ProfilePicture}
         ></img>
       </div>
-      <div className="info-container">
-        <div className="row space-between">
-          <p className="usernameHeader">{username}</p>
-          {FollowEnabled ? (
-            <button
-              className="btn btn-outline-primary small"
-              onClick={(e) => handleFollow(e)}
-            >
-              {FollowVal}
-            </button>
-          ) : (
-            <></>
-          )}
-        </div>
-        <div className="row">
-          <span className="info-val">
-            <span className="number">{PostsNumber}</span>
-            posts
-          </span>
-          <span className="info-val">
-            <span className="number">{FollowerNumber}</span>
-            followers
-          </span>
-          <span className="info-val">
-            <span className="number">{FollowingNumber}</span>
-            following
-          </span>
-        </div>
-        <p className="name">{Name}</p>
-        <p className="bio"> {Bio}</p>
-      </div>
+        <UserBio  username={username}
+                  FollowEnabled = {FollowEnabled} 
+                  FollowVal = {FollowVal}
+                  PostsNumber={ PostsNumber}
+                  FollowerNumber={ FollowerNumber}
+                  FollowingNumber={ FollowingNumber}
+                  Name={ Name}
+                  Bio={Bio}
+                  loggedInUser={loggedInUser}
+                  setFollowVal={setFollowVal}
+                  setFollowerNumber={setFollowerNumber}
+         ></UserBio>
+      
     </div>
   );
 };
