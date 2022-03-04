@@ -19,14 +19,21 @@ const ProfileHeader = ({ username }) => {
     FollowEnabled,
     FollowVal,
     setFollowVal,
+    setFollowerNumber,
   ] = useProfileHeader(username);
 
   const handleFollow = (click) => {
     followUnfollow(loggedInUser, username)
       .then((res) => {
-        FollowVal === "Follow"
-          ? setFollowVal("Unfollow")
-          : setFollowVal("Follow");
+        if(FollowVal === "Follow")
+        {
+          setFollowVal("Unfollow")
+          setFollowerNumber(FollowerNumber + 1)
+        }
+        else{
+          setFollowVal("Follow");
+          setFollowerNumber(FollowerNumber - 1)
+        }
         toast.success(`User successfully ${FollowVal}ed!`);
       })
       .catch((err) => {console.log(err.message)});
