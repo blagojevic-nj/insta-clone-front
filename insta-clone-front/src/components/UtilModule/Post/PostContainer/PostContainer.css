@@ -1,0 +1,26 @@
+.post-container{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    border: 1px solid rgb(180, 180, 180);
+    margin: 1rem 2rem;
+    background-color: white;
+    max-width: 35vw;
+    min-width: 350px;
+}
+
+.post-description{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    padding: 0.5rem 1rem;
+}
+
+.username{
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+p{
+    font-size: large;
+}
