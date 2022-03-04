@@ -5,7 +5,7 @@ import {
   checkIfUserFollowsUser,
 } from "../../services/UserService";
 import { getDecodedUsername } from "../../helpers/AuthHelper.js";
-import { SPRING_APP_URL } from "../../components/constants";
+import { SPRING_APP_URL } from "../../helpers/constants";
 
 export const useProfileHeader = (username) => {
   const [Name, setName] = useState("");

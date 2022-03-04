@@ -1,14 +1,14 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 
-import AddPost from "../components/AddPost/AddPost";
-import ForgottenPassword from "../components/ForgottenPassword/ForgottenPassword";
-import Home from "../components/Home/Home";
-import Login from "../components/Login/Login";
-import NotFound from "../components/NotFoundPage/NotFoundPage";
-import Registration from "../components/Registration/Registration";
-import ResetPassword from "../components/ResetPassword/ResetPassword";
-import UserProfile from "../components/UserProfile/UserProfile";
+import AddPost from "../components/UtilModule/AddPost/AddPost";
+import ForgottenPassword from "../components/AuthModule/ForgottenPassword/ForgottenPassword";
+import Home from "../components/MainPageModule/Home/Home";
+import Login from "../components/AuthModule/Login/Login";
+import NotFound from "../components/MainPageModule/NotFoundPage/NotFoundPage";
+import Registration from "../components/AuthModule/Registration/Registration";
+import ResetPassword from "../components/AuthModule/ResetPassword/ResetPassword";
+import UserProfile from "../components/MainPageModule/UserProfile/UserProfile";
 
 const MyRoutes = () => {
   return (
