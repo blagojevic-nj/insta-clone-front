@@ -18,7 +18,7 @@ export const Options = () => {
       />
 
       <Option
-        redirect={`${REACT_APP_URL}/home`}
+        redirect={`${REACT_APP_URL}/explore`}
         icon={<FavoriteBorderOutlinedIcon />}
       />
 

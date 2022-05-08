@@ -24,3 +24,7 @@
 p{
     font-size: large;
 }
+
+.cursor {
+    cursor: pointer;
+}
