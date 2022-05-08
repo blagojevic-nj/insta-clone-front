@@ -1,0 +1,7 @@
+#mainExploreContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: aliceblue;
+    min-height: 95vh;
+}
