@@ -10,6 +10,7 @@ import Registration from "../components/AuthModule/Registration/Registration";
 import ResetPassword from "../components/AuthModule/ResetPassword/ResetPassword";
 import UserProfile from "../components/MainPageModule/UserProfile/UserProfile";
 import Explore from "../components/MainPageModule/Explore/Explore";
+import SinglePost from "../components/UtilModule/Post/SinglePost/SinglePost";
 
 const MyRoutes = () => {
   return (
@@ -94,6 +95,16 @@ const MyRoutes = () => {
         element={
           <ProtectedRoute
             component={<Explore />}
+            navigate={<Navigate to={"/login"} />}
+          />
+        }
+      />
+      <Route
+        exact
+        path="/post/:postId"
+        element={
+          <ProtectedRoute
+            component={<SinglePost />}
             navigate={<Navigate to={"/login"} />}
           />
         }

@@ -4,9 +4,14 @@ import PostHeader from "../PostHeader/PostHeader";
 import ReactionsBar from "../Reactions/ReactionsBar";
 import "./PostContainer.css";
 import { PostContext } from "../../../../helpers/contexts/PostContext";
+import { REACT_APP_URL} from '../../../../helpers/constants.js'
 
 const PostContainer = ({ post }) => {
   const [likes, setLikes] = useState(post.numOfReactions);
+
+  const viewPost = (id) => {
+     window.location.href = `${REACT_APP_URL}/post/${id}`
+  }
 
   return (
     <div className="post-container">
@@ -14,11 +19,12 @@ const PostContainer = ({ post }) => {
         username={post.username}
         profilePic={process.env.REACT_APP_SERVER_URL + post.userProfilePicture}
       ></PostHeader>
-      <img
-        className="post-img"
-        alt="loading..."
-        src={process.env.REACT_APP_SERVER_URL + post.picture}
-      ></img>
+        <img
+          className="post-img cursor"
+          alt="loading..."
+          src={process.env.REACT_APP_SERVER_URL + post.picture}
+          onClick={() => viewPost(post.id)}
+        ></img>
       <PostContext.Provider value={{ entityId: post.id, likes, setLikes }}>
         <ReactionsBar likes={likes} />
       </PostContext.Provider>

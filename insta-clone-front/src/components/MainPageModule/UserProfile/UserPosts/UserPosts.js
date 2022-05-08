@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import "./UserPosts.css"
 import { getUserPosts } from '../../../../services/PostService.js';
+import { REACT_APP_URL } from '../../../../helpers/constants'
 
 
 const UserPosts = ({ username }) => {
 
   const [Posts, setPosts] = useState([])
-    useEffect(() => {
-      getUserPosts(username, 0, 9)
+  useEffect(() => {
+    getUserPosts(username, 0, 9)
       .then(res => {
-        if(res.data?.content)
-        {
+        if (res.data?.content) {
           const pictures = res.data.content.map(post => {
             const img = post.picture ? `http://localhost:8080${post.picture}` : 'http://localhost:8080/static/posts/default.jpg'
-            return {key: post.id, img: img}
+            return { key: post.id, img: img, id: post.id }
           })
           setPosts(pictures)
         }
@@ -22,17 +22,19 @@ const UserPosts = ({ username }) => {
       .catch(err => {
         console.log(JSON.stringify(err))
       })
-    }, [])
+  }, [])
 
-    
+  const viewPost = (id) => {
+    window.location.href = `${REACT_APP_URL}/post/${id}`
+  }
 
   return (
     <div className='user-posts-container'>
-        {Posts.map(post => 
-          <div className='my-img-container' key={post.key}>
-              <img className='my-img' alt='img' src={post.img}></img>
-          </div>
-          )}
+      {Posts.map(post =>
+        <div className='my-img-container' key={post.key}>
+          <img className='my-img' alt='img' src={post.img} onClick={() => viewPost(post.id)}></img>
+        </div>
+      )}
     </div>
   )
 }

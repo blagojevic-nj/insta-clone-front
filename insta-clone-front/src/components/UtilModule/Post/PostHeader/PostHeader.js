@@ -13,7 +13,7 @@ const PostHeader = ({username, profilePic, picture}) => {
         alt={username}
         src={profilePic}
         ></Avatar>
-        <h3 className='post-header-username'>{username}</h3>
+        <h3 className='post-header-username'>{username}&nbsp;<span>•</span></h3>
     </div>
   )
 }
