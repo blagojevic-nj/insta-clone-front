@@ -8,20 +8,19 @@ toast.configure();
 
 const AddPost = () => {
   const onSubmit = (data) => {
+    console.log(data);
     publishPost(data)
-      .then((result) => {
+      .then(() => {
         window.location.href = "/home";
       })
-      .catch((error) => {
+      .catch(() => {
         toast("neka greska");
       });
   };
 
   return (
-    <div className="main-container">
-      <div className="colon">
-        <AddPostForm onSubmit={onSubmit} />
-      </div>
+    <div className="add-post mt-2">
+      <AddPostForm onSubmit={onSubmit} />
     </div>
   );
 };
