@@ -17,3 +17,19 @@
      cursor: pointer;
      color: rgb(180, 180, 180);
  }
+
+ .even {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+ }
+
+ .right {
+     align-items: end;
+     justify-content: end;
+ }
+
+ .col {
+     display: flex;
+     flex-direction: column;
+ }

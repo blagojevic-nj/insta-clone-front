@@ -6,6 +6,7 @@ import "./PostContainer.css";
 import { PostContext } from "../../../../helpers/contexts/PostContext";
 import { REACT_APP_URL} from '../../../../helpers/constants.js'
 import TagRibbon from "../TagRibbon/TagRibbon";
+import TimeRibbon from "../TimeRibbon/TimeRibbon";
 
 const PostContainer = ({ post }) => {
   const [likes, setLikes] = useState(post.numOfReactions);
@@ -34,6 +35,7 @@ const PostContainer = ({ post }) => {
         <p><span className="username">@{post.username}</span> {post.text}</p>
       </div>
       <TagRibbon tags={post.categories}></TagRibbon>
+      <TimeRibbon datetime={post.time}></TimeRibbon>
       <AddComment />
     </div>
   );

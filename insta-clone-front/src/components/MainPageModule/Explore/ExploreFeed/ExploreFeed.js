@@ -1,6 +1,6 @@
 import React from 'react'
 import InfiniteScroll from 'react-infinite-scroller';
-import { getFeed } from "../../../../services/PostService.js";
+import { getExplore } from "../../../../services/PostService.js";
 import { useInfiniteScroll } from "../../../../helpers/hooks/useInfiniteScroll.js";
 import "./ExploreFeed.css"
 import RegularExploreBlock from '../ExploreBlock/RegularExploreBlock/RegularExploreBlock.js';
@@ -8,7 +8,7 @@ import CustomExploreBlock from '../ExploreBlock/CustomExploreBlock/CustomExplore
 
 const ExploreFeed = () => {
 
-  const { data, pageNumber, hasMore, loadFunc } = useInfiniteScroll([], 0, 4, getFeed);
+  const { data, pageNumber, hasMore, loadFunc } = useInfiniteScroll([], 0, 4, getExplore);
 
   return (
     <div id='exploreFeed'>
