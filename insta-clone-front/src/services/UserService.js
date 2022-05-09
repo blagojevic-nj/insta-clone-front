@@ -32,3 +32,7 @@ export const followUnfollow = (myUsername, otherUsername) => {
     }
     return axios.post(url+ "/follow-unfollow", dto);
 }
+
+export const getFriendSuggestions = (page, size) => {
+    return axios.get(`${url}/suggestions?page=${page}&size=${size}`)
+}
