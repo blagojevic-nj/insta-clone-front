@@ -43,7 +43,7 @@ export const LocationSelect = ({ setLocation }) => {
           />
         </div>
         <div>
-          {suggestions.map((suggestion, id) => {
+          {suggestions.slice(0, 3).map((suggestion, id) => {
             return (
               <div key={id}>
                 <span

@@ -57,3 +57,9 @@ a {
     border-radius: 50%;
     border: 2px solid gray;
 }
+
+.add-post {
+    margin: auto;
+    display: block;
+    max-width: 95vw;
+}
