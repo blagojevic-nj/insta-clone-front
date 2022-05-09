@@ -2,19 +2,29 @@ import React from 'react'
 import { Avatar } from '@material-ui/core'
 import "./PostHeader.css"
 
-const PostHeader = ({username, profilePic, picture}) => {
+const PostHeader = ({ username, profilePic, location }) => {
 
   const seeProfile = () => window.location.href = `/profile/${username}`
 
   return (
-    <div className='post-header' onClick={seeProfile}>
+    <>
+      <div className='post-header' onClick={seeProfile}>
         <Avatar
-        className="avatar"
-        alt={username}
-        src={profilePic}
+          className="avatar"
+          alt={username}
+          src={profilePic}
         ></Avatar>
-        <h3 className='post-header-username'>{username}&nbsp;<span>•</span></h3>
-    </div>
+        <div className='col'>
+          <h3 className='post-header-username'>{username}&nbsp;<span>•</span></h3>
+          <div className='location-tag-container'>
+            <span className='location-tag'>{location}</span>
+          </div>
+        </div>
+      </div>
+
+
+
+    </>
   )
 }
 

@@ -5,6 +5,7 @@ import ReactionsBar from "../Reactions/ReactionsBar";
 import "./PostContainer.css";
 import { PostContext } from "../../../../helpers/contexts/PostContext";
 import { REACT_APP_URL} from '../../../../helpers/constants.js'
+import TagRibbon from "../TagRibbon/TagRibbon";
 
 const PostContainer = ({ post }) => {
   const [likes, setLikes] = useState(post.numOfReactions);
@@ -18,6 +19,7 @@ const PostContainer = ({ post }) => {
       <PostHeader
         username={post.username}
         profilePic={process.env.REACT_APP_SERVER_URL + post.userProfilePicture}
+        location={post.location}
       ></PostHeader>
         <img
           className="post-img cursor"
@@ -31,6 +33,7 @@ const PostContainer = ({ post }) => {
       <div className="post-description">
         <p><span className="username">@{post.username}</span> {post.text}</p>
       </div>
+      <TagRibbon tags={post.categories}></TagRibbon>
       <AddComment />
     </div>
   );
