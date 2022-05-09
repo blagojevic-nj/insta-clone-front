@@ -8,10 +8,7 @@
 
 
 .explore-post-container {
-    width: 20vw;
-    height: fit-content;
     padding: 1rem;
-    max-height: 20vh;
     margin-bottom: 1rem;
     aspect-ratio: 1/1;
 }
