@@ -4,6 +4,7 @@ import PostHeader from "../../PostHeader/PostHeader.js";
 import { PostContext } from "../../../../../helpers/contexts/PostContext.js";
 import ReactionsBar from "../../Reactions/ReactionsBar.js";
 import AddComment from "../../AddComment/AddComment.js";
+import TagRibbon from '../../TagRibbon/TagRibbon'
 
 import "./SinglePostView.css";
 
@@ -46,6 +47,7 @@ const SinglePostView = ({ postId }) => {
                 <span className="username">@{Post.username}</span> {Post.text}
               </p>
             </div>
+            <TagRibbon tags={Post.categories}></TagRibbon>
           </div>
           <div className="single-post-comment-container">
             <div></div>
