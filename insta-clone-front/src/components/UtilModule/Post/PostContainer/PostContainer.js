@@ -29,7 +29,7 @@ const PostContainer = ({ post }) => {
           onClick={() => viewPost(post.id)}
         ></img>
       <PostContext.Provider value={{ entityId: post.id, likes, setLikes }}>
-        <ReactionsBar likes={likes} />
+        <ReactionsBar likes={likes} postId={post.id} />
       </PostContext.Provider>
       <div className="post-description">
         <p><span className="username">@{post.username}</span> {post.text}</p>

@@ -1,15 +1,23 @@
 import React from "react";
 import { Reactions } from "./Reactions/Reactions";
+import ShareButton from './ShareButton/ShareButton.js'
 import "./ReactionsBar.css";
 
-const ReactionsBar = ({ likes }) => {
+const ReactionsBar = ({ likes, postId }) => {
   return (
     <div className="reactions-container">
       <Reactions
         reactionKind={"POST_REACTION"}
       />
       <div className="likes">
-        <p className="likes-text">Liked By {likes} people</p>
+        <div className="likes-col">
+          <ShareButton postid={postId}></ShareButton>
+        </div>
+        <div className="likes-col">
+          <p className="likes-text">Liked By {likes} people</p>
+        </div>
+
+
       </div>
     </div>
   );

@@ -14,6 +14,13 @@
 
 .likes{
     display: flex;
+    flex-direction: row;
+}
+
+.likes-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .likes-text{

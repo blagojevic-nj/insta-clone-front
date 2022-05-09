@@ -56,7 +56,7 @@ const SinglePostView = ({ postId }) => {
               <PostContext.Provider
                 value={{ entityId: postId, likes, setLikes }}
               >
-                <ReactionsBar likes={likes} />
+                <ReactionsBar likes={likes} postId={Post.id} />
               </PostContext.Provider>
               <AddComment />
             </div>
