@@ -3,15 +3,18 @@
         flex-direction: column;
         border-radius: 10px;
         padding: 0.5rem 0;
-        max-width: 45vw;
-        min-width: 360px;
+        max-width: 42rem;
+        min-width: 42rem;
     }
+    
     .suggestion-row {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        width: 42rem;
+        overflow: auto;
     }
-
+    
     .sugg-header {
         padding: 0.3rem;
         margin-bottom: 0.5rem;
