@@ -39,3 +39,7 @@ export const getUserPosts = (username, page, size) => {
 export const sharePost = (postId) => {
   return axios.post(`${postUrl}share/${postId}`);
 };
+
+export const reload = () => {
+  return axios.get(`${postUrl}reload`);
+};
