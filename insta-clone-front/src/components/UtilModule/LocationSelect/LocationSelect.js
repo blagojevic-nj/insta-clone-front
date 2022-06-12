@@ -12,14 +12,23 @@ export const LocationSelect = ({ setLocation }) => {
       e.target.value
     )}&limit=5&apiKey=${apiKey}`;
     axios.get(url).then((result) => {
+      console.log(result)
       setSuggestions(result.data.features);
     });
   };
 
   const handleSelect = (properties) => {
     const newLocation = {
-      state: properties.country,
-      region: properties.state,
+      chain: [
+                properties?.name,
+                properties?.suburb,
+                properties?.district,
+                properties?.village,
+                properties?.city,
+                properties?.county,
+                properties?.state,
+                properties?.country,
+              ],
       locationName: properties.formatted,
       longitude: properties.lon,
       latitude: properties.lat,
