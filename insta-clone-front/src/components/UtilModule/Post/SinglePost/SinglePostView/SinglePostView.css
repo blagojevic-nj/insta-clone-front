@@ -8,13 +8,13 @@
 
 #main-img-container {
     display: flex;
-    flex-direction: column;
-    height: 100%;
+    width: 100%;
     max-width: min-content;
     aspect-ratio: 1/1;
     border: 1px solid #DBDBDB;
     justify-items: center;
-/*     align-items: center;
+    justify-content: center;
+    /*     align-items: center;
  */
 }
 
