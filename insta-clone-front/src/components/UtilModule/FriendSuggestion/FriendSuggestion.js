@@ -16,7 +16,7 @@ const FriendSuggestion = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  return !!Suggestions ? (
+  return Suggestions.length != 0 ? (
     <div className="suggestion-container">
       <div className="sugg-header">
         <h2>Suggestions For You</h2>

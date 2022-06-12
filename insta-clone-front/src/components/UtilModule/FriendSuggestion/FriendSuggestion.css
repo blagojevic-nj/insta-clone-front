@@ -13,6 +13,8 @@
         justify-content: flex-start;
         width: 42rem;
         overflow: auto;
+        padding: 1rem;
+        background-color: white;
     }
     
     .sugg-header {
