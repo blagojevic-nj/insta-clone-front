@@ -23,7 +23,7 @@ export const CATEGORIES = [
   "URBAN_LIFE",
   "ART",
   "SELFIE",
-  "RELIGION_HISTORY",
+  "HISTORY_RELIGION",
   "EDUCATION",
   "HEALTH_BEAUTY",
   "MEME",
